@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration info="true">
+    <property name="LOG_DIR" value="/logs/dubbo-demo"/>
+    <property name="LOG_LEVEL" value="INFO"/>
+
+    <!--输出到控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="dubboDemoFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_DIR}/dubboDemoC.log</file>
+
+        <!--日志滚动策略 有：
+        TimeBasedRollingPolicy：基于时间滚动策略
+        SizeAndTimeBasedRollingPolicy：基于大小和时间的滚动策略，对时间滚动策略的一个补充
+        FixedWindowRollingPolicy：基于固定窗口的滚动策略
+        -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_DIR}/dubboDemoC.log.%d{yyyy-MM-dd}</FileNamePattern>
+            <!--日志保存多少天-->
+            <!--<maxHistory>30</maxHistory>-->
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>${LOG_LEVEL}</level>
+        </filter>
+    </appender>
+
+
+    <root level="${LOG_LEVEL}">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="dubboDemoFile" />
+    </root>
+</configuration>

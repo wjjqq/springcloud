@@ -16,4 +16,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface ProviderClient {
     @GetMapping("/testDemoP")
     public String testDemoP();
+
+
+
+    @GetMapping("/testDemoTimeOut")
+    public String testDemoTimeOut();
 }

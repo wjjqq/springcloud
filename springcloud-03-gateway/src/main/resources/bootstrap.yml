@@ -1,0 +1,17 @@
+
+spring:
+  application:
+    name: springcloud-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true # 开启从注册中心动态创建路由的功能
+      routes:
+        - id: test_gateway
+          uri: lb://msa-provider # lb协议表示启用负载均衡功能，然后后面跟着微服务名称
+          predicates:
+            - Path=/test/**   #匹配msa-provider服务所有test/**的路径

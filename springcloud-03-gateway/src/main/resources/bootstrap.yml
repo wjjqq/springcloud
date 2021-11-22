@@ -15,3 +15,8 @@ spring:
           uri: lb://msa-provider # lb协议表示启用负载均衡功能，然后后面跟着微服务名称
           predicates:
             - Path=/test/**   #匹配msa-provider服务所有test/**的路径
+#多个路由
+#        - id: test_gateway
+#          uri: lb://msa-provider # lb协议表示启用负载均衡功能，然后后面跟着微服务名称
+#          predicates:
+#             - Path=/test/**   #匹配msa-provider服务所有test/**的路径

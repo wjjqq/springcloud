@@ -21,7 +21,12 @@ public class TestController {
     @GetMapping("/testExceptionHandle")
     public String testExceptionHandle(){
 
+        //测试数字转换异常
+        Integer aa  = Integer.valueOf("1ww");
+
+        //测试空指针异常
         throw new NullPointerException();
+
 //        return "success";
 
     }

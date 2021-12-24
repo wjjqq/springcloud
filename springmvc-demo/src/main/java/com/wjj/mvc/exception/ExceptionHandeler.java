@@ -19,4 +19,10 @@ public class ExceptionHandeler {
         return new Result("500", "空指针异常"+e.getMessage());
     }
 
+
+    @ExceptionHandler(value = NumberFormatException.class)
+    public Result handerNumberFormatException(Exception e){
+        return new Result("500", "数字转换异常"+e.getMessage());
+    }
+
 }

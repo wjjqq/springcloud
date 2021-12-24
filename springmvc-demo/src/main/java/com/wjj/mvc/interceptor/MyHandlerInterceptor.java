@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @Author wjj
  * @create 2021/12/24
- * @Description 自定义拦截器
+ * @Description 自定义拦截器 实现 HandlerInterceptor方法，HandlerInterceptorAdapter不推荐使用了
  */
 @Component
 public class MyHandlerInterceptor implements HandlerInterceptor {

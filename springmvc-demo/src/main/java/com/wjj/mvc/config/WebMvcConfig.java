@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * @Author wjj
  * @create 2021/12/24
- * @Description
+ * @Description 配置spring相关内容
  */
 @Configuration
 public class WebMvcConfig  implements WebMvcConfigurer {
@@ -19,6 +19,10 @@ public class WebMvcConfig  implements WebMvcConfigurer {
     @Autowired
     MyHandlerInterceptor myHandlerInterceptor;
 
+    /**
+     * 皮质拦截器
+     * @param registry
+     */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //增加拦截器，拦截testInterceptor请求
